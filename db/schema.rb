@@ -10,15 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_09_214833) do
+ActiveRecord::Schema.define(version: 2020_12_12_220650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "searches", force: :cascade do |t|
-    t.text "query"
+  create_table "documents", force: :cascade do |t|
+    t.jsonb "data"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "search_id", null: false
+    t.index ["search_id"], name: "index_documents_on_search_id"
   end
 
+  create_table "searches", force: :cascade do |t|
+    t.text "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["url"], name: "index_searches_on_url", unique: true
+  end
+
+  add_foreign_key "documents", "searches"
 end
