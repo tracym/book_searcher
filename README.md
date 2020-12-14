@@ -8,7 +8,7 @@ Content-Type: application/json
 {"query": "bugs"}
 ```
 
-This will return the `id` which can later be used for accessing the search results. The link to the documents returned from the search will appear as the `document` link.
+This will return the `id` which can later be used for accessing the search results. The link to the documents returned from the search will appear as the `documents` link.
 
 Sample response:
 
