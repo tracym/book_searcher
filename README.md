@@ -1,24 +1,52 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Book searcher is an API wrapper for the [Open Library Search API](https://openlibrary.org/dev/docs/api/search). It exposes the search endpoint via:
 
-Things you may want to cover:
+```
+POST https://aqueous-caverns-66351.herokuapp.com/library/search
+Content-Type: application/json
+{"query": "bugs"}
+```
 
-* Ruby version
+This will return the `id` which can later be used for accessing the search results. The link to the documents returned from the search will appear as the `document` link.
 
-* System dependencies
+Sample response:
 
-* Configuration
+```
+{
+  "data": {
+    "id": "4",
+    "type": "searches",
+    "attributes": {
+      "url": "http://openlibrary.org/search.json?q=bugs",
+      "links": [
+        {
+          "rel": "documents",
+          "href": "http://aqueous-caverns-66351.herokuapp.com/library/search/4/documents"
+        }
+      ]
+    }
+  }
+}
+```
 
-* Database creation
+The search documents endpoint can be filtered sorted and paginated. Some examples:
 
-* Database initialization
+```
+GET http://aqueous-caverns-66351.herokuapp.com/library/search/47/documents
+Content-Type: application/json
+{"filter_key": "author_name",
+ "filter_value": "Kaufman",
+ "sort_key": "title", "sort_dir": "desc"}
+```
 
-* How to run the test suite
+With pagination:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+GET http://aqueous-caverns-66351.herokuapp.com/library/search/47/documents
+Content-Type: application/json
+{"filter_key": "author_name",
+ "filter_value": "Kaufman",
+ "page_size": 100, "page": 2}
+```
 
-* Deployment instructions
-
-* ...
