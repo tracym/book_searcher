@@ -13,7 +13,7 @@ class Search < ApplicationRecord
 
   def cache(cache_policy)
     if new_record? || updated_at < cache_policy.call
-      update_attributes(updated_at: Time.zone.now)
+      update(updated_at: Time.zone.now)
       yield(self)
     end
   end
