@@ -15,7 +15,6 @@ class LibraryController < ApplicationController
     search = Search.find(params[:id])
 
     docs = paged_documents(sorted_documents(filtered_documents(search)))
-
     render json: docs
   end
 

@@ -160,7 +160,6 @@
           7,
           null,
           7,
-          null,
           7,
           null,
           null,
@@ -224,6 +223,24 @@
           null
         ]
       },
+      "/Users/tracy/src/rails/2.7/book_searcher/app/serializers/search_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/tracy/src/rails/2.7/book_searcher/app/mailers/application_mailer.rb": {
         "lines": [
           0,
@@ -255,6 +272,6 @@
         }
       }
     },
-    "timestamp": 1607908438
+    "timestamp": 1607913060
   }
 }

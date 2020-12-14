@@ -1,7 +1,7 @@
 class DocumentSerializer < ActiveModel::Serializer
-  attributes :id, :search_id, :data
+  attributes :id, :search_id, :document
 
-  def data
+  def document
     {
      title: self.object.data['title'],
      author_name: self.object.data['author_name'],

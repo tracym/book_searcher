@@ -47,7 +47,7 @@ RSpec.describe 'Search Documents Retrieval', type: :request do
 
         it 'sorts correctly' do
           data = JSON.parse(response.body)['data']
-          author = data[0]['attributes']['data']['author-name']
+          author = data[0]['attributes']['document']['author-name']
           expect(author).to eq(['Bar'])
         end
       end
@@ -57,7 +57,7 @@ RSpec.describe 'Search Documents Retrieval', type: :request do
 
         it 'sorts correctly' do
           data = JSON.parse(response.body)['data']
-          author = data[0]['attributes']['data']['author-name']
+          author = data[0]['attributes']['document']['author-name']
           expect(author).to be_nil
         end
       end
